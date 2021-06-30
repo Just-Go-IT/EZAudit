@@ -1,0 +1,16 @@
+{
+  "name": "2.3.4.1 (L1) Ensure 'Devices: Allowed to format and eject removable media' is set to 'Administrators and Interactive Users'",
+  "steps": [
+    {
+      "module": "getRegKey",
+      "parameter": {
+        "path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\WindowsNT\\CurrentVersion\\Winlogon\\AllocateDASD",
+        "type": "DWord"
+      },
+      "result": {
+        "comparison": "==",
+        "expectedValue": "kein Plan"
+      }
+    }
+  ]
+}

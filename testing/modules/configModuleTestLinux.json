@@ -1,0 +1,68 @@
+{
+  "os": "linux",
+  "debug": true,
+  "maxOutputLength": 500,
+  "commands": [
+    {
+      "name": "Module1/app_armour",
+      "steps": [
+        {
+          "module": "a",
+          "parameter": {
+            "path" : "/home/mike/goPath/Just-Go-IT/ERNW-Audit-Framework/configFiles/configCat.json"
+          },
+          "comparison": "!=",
+          "expected": ""
+        }
+      ]
+    },
+    {
+      "name": "Module2/auditctl",
+      "steps": [
+        {
+          "module": "auditctl",
+          "parameter": {
+          },
+          "comparison": "!=",
+          "expected": ""
+        }
+      ]
+    },
+    {
+      "name": "Module3/authselect_current",
+      "steps": [
+        {
+          "module": "authselect_current",
+          "parameter": {
+          },
+          "comparison": "!=",
+          "expected": ""
+        }
+      ]
+    },
+    {
+      "name": "Module4/...",
+      "steps": [
+        {
+          "module": "...",
+          "parameter": {
+          },
+          "comparison": "!=",
+          "expected": ""
+        }
+      ]
+    },
+    {
+      "name": "Module4/...",
+      "steps": [
+        {
+          "module": "...",
+          "parameter": {
+          },
+          "comparison": "!=",
+          "expected": ""
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "os": "windows",
+  "debug": true,
+  "commands": [
+    {{,
+    "name": "1.1.1 (L1) Ensure 'Enforce password history' is set to '24 or more password(s)",
+    "steps": [
+      {
+        "module": "secedit",
+        "parameter": {
+          "pattern": "PasswordHistorySize"
+        },
+        "result": {}
+        "comparison": "==",
+        "expectedValue": "24"
+      }
+    }
+    ]
+  },
+    {
+      "name": "2.3.1.4 (L1) Ensure 'Accounts: Limit local account use of blank passwords to console logon only' is set to 'Enabled'",
+      "steps": [
+        {
+          "module": "getRegKey",
+          "parameter": {
+            "path": "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Lsa\\LimitBlankPasswordUse",
+            "type": "DWord"
+          },
+          "result": {
+            "comparison": "==",
+            "expectedValue": "1"
+          }
+        }
+      ]
+    }
+  ]
+}

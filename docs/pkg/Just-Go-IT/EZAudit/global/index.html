@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>global - Go Documentation Server</title>
+
+<link type="text/css" rel="stylesheet" href="../../../../lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="../../../../lib/godoc/jquery.js" defer></script>
+
+
+
+<script>var goVersion = "go1.15.9";</script>
+<script src="../../../../lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="http://localhost:8080/pkg/">Go Documentation Server</a></div>
+<div class="top-heading" id="heading-narrow"><a href="http://localhost:8080/pkg/">GoDoc</a></div>
+<a href="index.html#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+<form method="GET" action="http://localhost:8080/search">
+<div id="menu">
+
+<span class="search-box"><input type="search" id="search" name="q" placeholder="Search" aria-label="Search" required><button type="submit"><span><!-- magnifying glass: --><svg width="24" height="24" viewBox="0 0 24 24"><title>submit search</title><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg></span></button></span>
+</div>
+</form>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package global
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "Just-Go-IT/EZAudit/global"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="index.html#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="index.html#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				<p>
+Package global provides structs, interfaces, paths and locks which the should be accessible fpr the hole project.
+</p>
+
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+				<dd><a href="index.html#pkg-variables">Variables</a></dd>
+			
+			
+			
+				
+				<dd><a href="index.html#Audit">type Audit</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#AuditStep">type AuditStep</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#Command">type Command</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#ConfigStruct">type ConfigStruct</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#General">type General</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#Module">type Module</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#Path">type Path</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#ReportStruct">type ReportStruct</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#Step">type Step</a></dd>
+				
+				
+			
+				
+				<dd><a href="index.html#Summary">type Summary</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="http://localhost:8080/src/Just-Go-IT/EZAudit/global/interfaces.go">interfaces.go</a>
+			
+				<a href="http://localhost:8080/src/Just-Go-IT/EZAudit/global/locks.go">locks.go</a>
+			
+				<a href="http://localhost:8080/src/Just-Go-IT/EZAudit/global/paths.go">paths.go</a>
+			
+				<a href="http://localhost:8080/src/Just-Go-IT/EZAudit/global/structs.go">structs.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+			<h2 id="pkg-variables">Variables</h2>
+			
+				
+				<pre>var (
+    <span id="LoggerLock">LoggerLock</span>          *<a href="http://localhost:8080/pkg/sync/">sync</a>.<a href="http://localhost:8080/pkg/sync/#Mutex">Mutex</a>
+    <span id="SeceditLock">SeceditLock</span>         *<a href="http://localhost:8080/pkg/sync/">sync</a>.<a href="http://localhost:8080/pkg/sync/#Mutex">Mutex</a>
+    <span id="AuditpolLock">AuditpolLock</span>        *<a href="http://localhost:8080/pkg/sync/">sync</a>.<a href="http://localhost:8080/pkg/sync/#Mutex">Mutex</a>
+    <span id="IsInstalledLock">IsInstalledLock</span>     *<a href="http://localhost:8080/pkg/sync/">sync</a>.<a href="http://localhost:8080/pkg/sync/#Mutex">Mutex</a>
+    <span id="WindowsServicesLock">WindowsServicesLock</span> *<a href="http://localhost:8080/pkg/sync/">sync</a>.<a href="http://localhost:8080/pkg/sync/#Mutex">Mutex</a>
+    <span id="PipeStorageLock">PipeStorageLock</span>     *<a href="http://localhost:8080/pkg/sync/">sync</a>.<a href="http://localhost:8080/pkg/sync/#Mutex">Mutex</a>
+    <span id="CommandMapLock">CommandMapLock</span>      *<a href="http://localhost:8080/pkg/sync/">sync</a>.<a href="http://localhost:8080/pkg/sync/#Mutex">Mutex</a>
+)</pre>
+			
+				
+				<pre>var (
+    <span id="FilePermissionValue">FilePermissionValue</span> <a href="http://localhost:8080/pkg/os/">os</a>.<a href="http://localhost:8080/pkg/os/#FileMode">FileMode</a> = 0777
+
+    <span class="comment">//Paths</span>
+    <span id="RunningDir">RunningDir</span>          <a href="http://localhost:8080/pkg/builtin/#string">string</a>
+    <span id="EZAuditResultDir">EZAuditResultDir</span>    <a href="http://localhost:8080/pkg/builtin/#string">string</a>
+    <span id="ConfigPath">ConfigPath</span>          <a href="http://localhost:8080/pkg/builtin/#string">string</a>
+    <span id="ConfigResultPath">ConfigResultPath</span>    <a href="http://localhost:8080/pkg/builtin/#string">string</a>
+    <span id="DebugLogPath">DebugLogPath</span>        <a href="http://localhost:8080/pkg/builtin/#string">string</a>
+    <span id="ArtifactsDir">ArtifactsDir</span>        <a href="http://localhost:8080/pkg/builtin/#string">string</a>
+    <span id="AuditDir">AuditDir</span>            <a href="http://localhost:8080/pkg/builtin/#string">string</a>
+    <span id="MainResourcesDir">MainResourcesDir</span>    <a href="http://localhost:8080/pkg/builtin/#string">string</a>
+    <span id="ResultReportPath">ResultReportPath</span>    <a href="http://localhost:8080/pkg/builtin/#string">string</a>
+    <span id="SeceditDir">SeceditDir</span>          <a href="http://localhost:8080/pkg/builtin/#string">string</a>
+    <span id="SeceditPath">SeceditPath</span>         <a href="http://localhost:8080/pkg/builtin/#string">string</a>
+    <span id="AuditpolDir">AuditpolDir</span>         <a href="http://localhost:8080/pkg/builtin/#string">string</a>
+    <span id="AuditpolPath">AuditpolPath</span>        <a href="http://localhost:8080/pkg/builtin/#string">string</a>
+    <span id="IsInstalledDir">IsInstalledDir</span>      <a href="http://localhost:8080/pkg/builtin/#string">string</a>
+    <span id="IsInstalledPath">IsInstalledPath</span>     <a href="http://localhost:8080/pkg/builtin/#string">string</a>
+    <span id="WindowsServicesDir">WindowsServicesDir</span>  <a href="http://localhost:8080/pkg/builtin/#string">string</a>
+    <span id="WindowsServicesPath">WindowsServicesPath</span> <a href="http://localhost:8080/pkg/builtin/#string">string</a>
+)</pre>
+			
+		
+		
+		
+			
+			
+			<h2 id="Audit">type <a href="http://localhost:8080/src/Just-Go-IT/EZAudit/global/structs.go?s=1649:1828#L50">Audit</a>
+				<a class="permalink" href="index.html#Audit">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Audit struct {
+<span id="Audit.Name"></span>    Name       <a href="http://localhost:8080/pkg/builtin/#string">string</a>      `json:&#34;name&#34;`
+<span id="Audit.ID"></span>    ID         <a href="http://localhost:8080/pkg/builtin/#int">int</a>         `json:&#34;auditID&#34;`
+<span id="Audit.AuditSteps"></span>    AuditSteps []<a href="index.html#AuditStep">AuditStep</a> `json:&#34;steps&#34;`
+<span id="Audit.Status"></span>    Status     <a href="http://localhost:8080/pkg/builtin/#string">string</a>      `json:&#34;status&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="AuditStep">type <a href="http://localhost:8080/src/Just-Go-IT/EZAudit/global/structs.go?s=1830:2230#L57">AuditStep</a>
+				<a class="permalink" href="index.html#AuditStep">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type AuditStep struct {
+<span id="AuditStep.ID"></span>    ID          <a href="http://localhost:8080/pkg/builtin/#int">int</a>        `json:&#34;auditStepID&#34;`
+<span id="AuditStep.Expected"></span>    Expected    <a href="http://localhost:8080/pkg/builtin/#string">string</a>     `json:&#34;expected&#34;`
+<span id="AuditStep.Comparison"></span>    Comparison  <a href="http://localhost:8080/pkg/builtin/#string">string</a>     `json:&#34;comparison&#34;`
+<span id="AuditStep.RealValue"></span>    RealValue   <a href="http://localhost:8080/pkg/builtin/#string">string</a>     `json:&#34;realValue&#34;`
+<span id="AuditStep.Description"></span>    Description <a href="http://localhost:8080/pkg/builtin/#string">string</a>     `json:&#34;description,omitempty&#34;`
+<span id="AuditStep.Status"></span>    Status      <a href="http://localhost:8080/pkg/builtin/#string">string</a>     `json:&#34;status&#34;`
+<span id="AuditStep.OnSuccess"></span>    OnSuccess   *<a href="index.html#AuditStep">AuditStep</a> `json:&#34;onSuccess,omitempty&#34;`
+<span id="AuditStep.OnFailure"></span>    OnFailure   *<a href="index.html#AuditStep">AuditStep</a> `json:&#34;onFailure,omitempty&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Command">type <a href="http://localhost:8080/src/Just-Go-IT/EZAudit/global/structs.go?s=288:394#L3">Command</a>
+				<a class="permalink" href="index.html#Command">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Command struct {
+<span id="Command.Name"></span>    Name   <a href="http://localhost:8080/pkg/builtin/#string">string</a> `json:&#34;name&#34;`
+<span id="Command.Steps"></span>    Steps  []<a href="index.html#Step">Step</a> `json:&#34;steps&#34;`
+<span id="Command.Index"></span>    Index  <a href="http://localhost:8080/pkg/builtin/#int">int</a>
+<span id="Command.Status"></span>    Status <a href="http://localhost:8080/pkg/builtin/#int">int</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ConfigStruct">type <a href="http://localhost:8080/src/Just-Go-IT/EZAudit/global/structs.go?s=33:286#L1">ConfigStruct</a>
+				<a class="permalink" href="index.html#ConfigStruct">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ConfigStruct struct {
+<span id="ConfigStruct.OS"></span>    OS              <a href="http://localhost:8080/pkg/builtin/#string">string</a>    `json:&#34;os&#34;`
+<span id="ConfigStruct.Verbosity"></span>    Verbosity       <a href="http://localhost:8080/pkg/builtin/#int">int</a>       `json:&#34;verbosity&#34;`
+<span id="ConfigStruct.MaxOutputLength"></span>    MaxOutputLength <a href="http://localhost:8080/pkg/builtin/#int">int</a>       `json:&#34;maxOutputLength&#34;`
+<span id="ConfigStruct.Censor"></span>    Censor          []<a href="http://localhost:8080/pkg/builtin/#string">string</a>  `json:&#34;censor&#34;`
+<span id="ConfigStruct.Commands"></span>    Commands        []<a href="index.html#Command">Command</a> `json:&#34;commands&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="General">type <a href="http://localhost:8080/src/Just-Go-IT/EZAudit/global/structs.go?s=1426:1647#L41">General</a>
+				<a class="permalink" href="index.html#General">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type General struct {
+<span id="General.Date"></span>    Date     <a href="http://localhost:8080/pkg/builtin/#string">string</a> `json:&#34;date&#34;`
+<span id="General.Runtime"></span>    Runtime  <a href="http://localhost:8080/pkg/builtin/#string">string</a> `json:&#34;executionTime&#34;`
+<span id="General.OS"></span>    OS       <a href="http://localhost:8080/pkg/builtin/#string">string</a> `json:&#34;os&#34;`
+<span id="General.Admin"></span>    Admin    <a href="http://localhost:8080/pkg/builtin/#bool">bool</a>   `json:&#34;admin&#34;`
+<span id="General.User"></span>    User     <a href="http://localhost:8080/pkg/builtin/#string">string</a> `json:&#34;user&#34;`
+<span id="General.UserName"></span>    UserName <a href="http://localhost:8080/pkg/builtin/#string">string</a> `json:&#34;userName&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Module">type <a href="http://localhost:8080/src/Just-Go-IT/EZAudit/global/interfaces.go?s=133:247#L1">Module</a>
+				<a class="permalink" href="index.html#Module">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Module interface {
+    New(map[<a href="http://localhost:8080/pkg/builtin/#string">string</a>]interface{}) (<a href="index.html#Module">Module</a>, <a href="http://localhost:8080/pkg/builtin/#error">error</a>)
+    Execute(currentStep *<a href="index.html#Step">Step</a>) (<a href="http://localhost:8080/pkg/builtin/#string">string</a>, <a href="http://localhost:8080/pkg/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Path">type <a href="http://localhost:8080/src/Just-Go-IT/EZAudit/global/structs.go?s=1191:1289#L28">Path</a>
+				<a class="permalink" href="index.html#Path">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Path struct {
+<span id="Path.CommandName"></span>    CommandName  <a href="http://localhost:8080/pkg/builtin/#string">string</a>
+<span id="Path.CommandIndex"></span>    CommandIndex <a href="http://localhost:8080/pkg/builtin/#int">int</a>
+<span id="Path.StepIndex"></span>    StepIndex    <a href="http://localhost:8080/pkg/builtin/#int">int</a>
+<span id="Path.ExactPath"></span>    ExactPath    <a href="http://localhost:8080/pkg/builtin/#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ReportStruct">type <a href="http://localhost:8080/src/Just-Go-IT/EZAudit/global/structs.go?s=1291:1424#L35">ReportStruct</a>
+				<a class="permalink" href="index.html#ReportStruct">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ReportStruct struct {
+<span id="ReportStruct.Summary"></span>    Summary <a href="index.html#Summary">Summary</a> `json:&#34;auditSummary&#34;`
+<span id="ReportStruct.General"></span>    General <a href="index.html#General">General</a> `json:&#34;general&#34;`
+<span id="ReportStruct.Audits"></span>    Audits  []<a href="index.html#Audit">Audit</a> `json:&#34;audit&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Step">type <a href="http://localhost:8080/src/Just-Go-IT/EZAudit/global/structs.go?s=396:1189#L10">Step</a>
+				<a class="permalink" href="index.html#Step">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Step struct {
+<span id="Step.ModuleName"></span>    ModuleName       <a href="http://localhost:8080/pkg/builtin/#string">string</a>                 `json:&#34;module&#34;`
+<span id="Step.AllowFailure"></span>    AllowFailure     <a href="http://localhost:8080/pkg/builtin/#bool">bool</a>                   `json:&#34;allowFailure&#34;`
+<span id="Step.DontSaveArtifact"></span>    DontSaveArtifact <a href="http://localhost:8080/pkg/builtin/#bool">bool</a>                   `json:&#34;dontSaveArtifact&#34;`
+<span id="Step.UsePipe"></span>    UsePipe          <a href="http://localhost:8080/pkg/builtin/#bool">bool</a>                   `json:&#34;usePipe&#34;`
+<span id="Step.Parameters"></span>    Parameters       map[<a href="http://localhost:8080/pkg/builtin/#string">string</a>]interface{} `json:&#34;parameter&#34;`
+<span id="Step.Comparison"></span>    Comparison       <a href="http://localhost:8080/pkg/builtin/#string">string</a>                 `json:&#34;comparison&#34;`
+<span id="Step.ExpectedValue"></span>    ExpectedValue    <a href="http://localhost:8080/pkg/builtin/#string">string</a>                 `json:&#34;expected&#34;`
+<span id="Step.Censor"></span>    Censor           []<a href="http://localhost:8080/pkg/builtin/#string">string</a>               `json:&#34;censor&#34;`
+<span id="Step.OnSuccess"></span>    OnSuccess        *<a href="index.html#Step">Step</a>                  `json:&#34;onSuccess&#34;`
+<span id="Step.OnFailure"></span>    OnFailure        *<a href="index.html#Step">Step</a>                  `json:&#34;onFailure&#34;`
+<span id="Step.NeedsElevation"></span>    NeedsElevation   <a href="http://localhost:8080/pkg/builtin/#bool">bool</a>                   `json:&#34;needsElevation&#34;`
+<span id="Step.Path"></span>    Path             <a href="index.html#Path">Path</a>
+<span id="Step.Module"></span>    Module           <a href="index.html#Module">Module</a>
+<span id="Step.Regex"></span>    Regex            []<a href="http://localhost:8080/pkg/regexp/">regexp</a>.<a href="http://localhost:8080/pkg/regexp/#Regexp">Regexp</a>
+<span id="Step.GetNext"></span>    GetNext          *<a href="index.html#Step">Step</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Summary">type <a href="http://localhost:8080/src/Just-Go-IT/EZAudit/global/structs.go?s=2232:2429#L68">Summary</a>
+				<a class="permalink" href="index.html#Summary">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Summary struct {
+<span id="Summary.PassedPercentage"></span>    PassedPercentage <a href="http://localhost:8080/pkg/builtin/#string">string</a> `json:&#34;passedPercentage&#34;`
+<span id="Summary.Passed"></span>    Passed           <a href="http://localhost:8080/pkg/builtin/#int">int</a>    `json:&#34;passed&#34;`
+<span id="Summary.Failed"></span>    Failed           <a href="http://localhost:8080/pkg/builtin/#int">int</a>    `json:&#34;failed&#34;`
+<span id="Summary.Errors"></span>    Errors           <a href="http://localhost:8080/pkg/builtin/#int">int</a>    `json:&#34;errors&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.15.9.<br>
+Except as <a href="https://developers.google.com/site-policies#restrictions">noted</a>,
+the content of this page is licensed under the
+Creative Commons Attribution 3.0 License,
+and code is licensed under a <a href="http://localhost:8080/LICENSE">BSD license</a>.<br>
+<a href="http://localhost:8080/doc/tos.html">Terms of Service</a> |
+<a href="http://www.google.com/intl/en/policies/privacy/">Privacy Policy</a>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

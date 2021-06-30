@@ -1,0 +1,46 @@
+alle Tests mit den Argumenten -nz -v=5
+
+Registry Test{
+OS testing:
+- [0] Runtime OS != Config OS
+    -> korrekt, "Didn't pass the sanity check, check the debug.log"
+- [0.1] Runtime OS != Config OS mit --force
+    -> korrekt, Sanity Check wird umgangen, Module werden trotzdem ausgeführt
+- [1] OS != supported Modules
+    -> korrekt, nicht supportete Module werden gelistet
+- [2] OS != supported Modules + typo in module parameters
+    -> korrekt, nur der Fehler von falschen Modulen wird im debug.log angegeben, parameter werden noch nicht geparsed
+- [3] richtige Secedit Config
+    -> korrekt, Value statt Pfad angegeben
+- [3.1] Verbosity Stufen außerhalb der definierten Bereiche angeben (Bsp: -v=8)
+    -> help Flag wird aufgerufen + Fehler "Wrong Syntax. The flag -v= does not support the value 8"
+- [3.2] mehrere gültige Flags mehrfach angegeben (Bsp: -v=1 -v=5)
+    -> korrekt, die jeweils letzte überschreibt die vorherigen
+- [3.3] mehrere ungültige Flags mehrfach angegeben (Bsp: -v=1 -v=8)
+    -> korrekt, man landet in der help-Flag Ausgabe und das Programm ist beendet
+- [4] Was passiert wenn Config OS = "" || Config OS = "blabla"
+    -> bei force sollten die Module denoch ausgeführt werden, ohne force Verhalten korrekt -> "unidentifiedOS" wird erkannt
+
+
+
+
+- auf anderen OS ausführen, die bisher nicht unterstützt sind (bspw. MacOS)
+
+}
+
+Config{
+- [5] Syntax Fehler in Config - wie verhalten sich die Fehlerausgaben?
+    -> Fehlermeldung in der Konsole sollte noch mitausgegeben werden, ansonsten wie erwartet
+- [6] nicht .json Datei als Config Datei
+    -> kann geparsed werden solange inhaltlich eine .json vorliegt -> Feature
+}
+
+
+Struct Test{
+--> gemeinsam mit Modulen testen!
+- funktionieren alle Patterns (bspw. DontSafeArtifact, usePipe, OnSuccess/OnFailure, etc.)
+}
+
+Censoring Test{
+- global (oben in der Config) und Lokal (im Step) mit diversen RegexExpressions
+}

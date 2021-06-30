@@ -1,0 +1,76 @@
+{
+  "os": "windows",
+  "debug": true,
+  "commands": [
+    {
+      "name": "1.1.1 (L1) Ensure 'Enforce password history' is set to '24 or more password(s)",
+      "steps": [
+        {
+          "module": "secedit",
+          "parameter": {
+            "pattern": "PasswordHistorySize"
+          },
+          "comparison": "==",
+          "expected": "24"
+          }
+      ]
+    },
+    {
+      "name": "1.1.2 (L1) Ensure 'Maximum password age' is set to '60 or fewer days, but not 0",
+      "steps": [
+        {
+          "module": "secedit",
+          "parameter": {
+            "pattern": "MaximumPasswordAge"
+          },
+          "comparison": "<=",
+          "expected": "60",
+          "OnSuccess": {
+            "module": "secedit",
+            "parameter": {
+              "pattern": "MaximumPasswordAge"
+            },
+            "comparison": "!=",
+            "expected": "0",
+            "onSuccess": {
+              "module": "secedit",
+              "parameter": {
+                "pattern": "MaximumPasswordAge"
+              },
+              "comparison": "==",
+              "expected": "25"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "2.3.6.1 (L1) Ensure 'Domain member: Digitally encrypt or sign secure channel data (always)' is set to 'Enabled'",
+      "steps": [
+        {
+          "module": "getItemPropertyValue",
+          "parameter": {
+            "path": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\Netlogon\\Parameters",
+            "name": "RequireSignOrSeal"
+          },
+          "comparison": "==",
+          "expected": "1"
+          }
+      ]
+    },
+    {
+      "name": "2.3.6.3 (L1) Ensure 'Domain member: Digitally sign secure channel data (when possible)' is set to 'Enabled'",
+      "steps": [
+        {
+          "module": "getItemPropertyValue",
+          "parameter": {
+            "path": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\Netlogon\\Parameters",
+            "name": "SignSecureChannel"
+          },
+          "comparison": "==",
+          "expected": "1"
+        }
+      ]
+    }
+  ]
+}

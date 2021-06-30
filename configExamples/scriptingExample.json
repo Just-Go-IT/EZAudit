@@ -1,0 +1,20 @@
+{
+  "os": "windows",
+  "maxOutputLength": 1000,
+  "commands": [
+    {
+      "name": "EcmaScript",
+      "steps": [
+        {
+          "module": "ecma",
+          "parameter": {
+            "path" :"Script.js"
+          },
+          "comparison" : "==",
+          "expected" : "demo"
+        }
+      ]
+    }
+  ]
+}
+

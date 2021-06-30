@@ -1,0 +1,90 @@
+{
+  "os": "linux oder windows",
+  "verbosity": Verbosity Stufen des Debug Logs (1-5),
+  "maxOutputLength": Legt maximale Länge der Ausgabe im Result Report fest bevor dieser als seperates Artefakt abgespeichert wird. (Erwartet int Wert),
+  "censor": [
+    "Regex Pattern zur Sanitisierung (global)"
+  ],
+  "commands": [
+    {
+      "name": "Auditname 1",
+      "steps": [
+        {
+          "module": "Modulname",
+          "censor": [
+            "Regex Pattern zur Sanitisierung (lokal)"
+          ],
+          "parameters": {
+            "Benötigte Parameter des Moduls": "Beispielsweise target "
+          },
+          "comparison": "==",
+          "expectedValue": "Erwartets Ergebnis "
+        }
+      ]
+    },
+    {
+      "name": "Auditname 2",
+      "steps": [
+        {
+          "module": "Modulname",
+          "allowFailure": true,
+          "parameters": {
+            "Benötigte Parameter des Moduls": "Beispielsweise target "
+          },
+          "comparison": "==",
+          "expectedValue": "",
+          "onFailure": {
+            "module": "Modul welches im Fehlerfall des oberen ausgeführt wird ",
+            "parameters": {
+              "Benötigte Parameter des Moduls": "Beispielsweise target "
+            },
+            "comparison": "==",
+            "expectedValue": ""
+          }
+        }
+      ]
+    },
+    {
+      "name": "Auditname 3",
+      "steps": [
+        {
+          "module": "Modulname",
+          "parameters": {
+            "Benötigte Parameter des Moduls": "Beispielsweise target "
+          },
+          "comparison": "==",
+          "expectedValue": "",
+          "onSuccess": {
+            "module": "Modul welches im Erfolgsfall des oberen ausgeführt wird ",
+            "parameters": {
+              "Benötigte Parameter des Moduls": "Beispielsweise target "
+            },
+            "comparison": "==",
+            "expectedValue": ""
+          }
+        }
+      ]
+    },
+    {
+      "name": "Auditname 4",
+      "steps": [
+        {
+          "module": "Modulname Step 1",
+          "parameters": {
+            "Benötigte Parameter des Moduls": "Beispielsweise target "
+          },
+          "comparison": "==",
+          "expectedValue": "Erwartets Ergebnis "
+        },
+        {
+          "module": "Modulname Step 2",
+          "parameters": {
+            "Benötigte Parameter des Moduls": "Beispielsweise target "
+          },
+          "comparison": "==",
+          "expectedValue": "Erwartets Ergebnis "
+        }
+      ]
+    }
+  ]
+}

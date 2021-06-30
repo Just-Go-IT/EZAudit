@@ -1,0 +1,27 @@
+
+fehlt:
+- module & wrapper || warten
+Zeile 24 SharedFunctions
+--- FAIL: Test_calculateSummary (1.49s)
+
+unmöglich / wissen nicht wie:
+- sharedFunctions.go -> SanityCheck() [schwer zu testen]
+- Windows Testklasse --> Empty
+
+16 Tests
+26 Methoden gesamt ohne Module
+40 Methoden mit Modulen
+
+16/26 = 61%
+16/40 = 40%
+
+ArtifactCollector 4/4
+Executer.go  4/5
+GeneralInfo 2/4 (aus allen von den) // wie funktioniert testing bei unseren Build-Tags ?  // GeneralInfo darwin funktioniert nich
+14 Module 0/14
+OperatingSystem 0/3 //erstmal nur windows
+logger 0/0
+parser 2/2
+writer 2/2 //bis recursive funktioniert dann 2/3
+sharedFunction 2/3 --> dritte unnötig sagt Nicolio
+wrapper 0/2 --> unnötig sagt simon

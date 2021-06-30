@@ -1,0 +1,305 @@
+{
+  "os": "linux",
+  "verbosity": 4,
+  "maxOutputLength": 1000,
+  "commands": [
+    {
+      "name": " Ensure mounting of cramfs filesystems is disabled",
+      "steps": [
+        {
+          "module": "modprobe",
+          "parameter": {
+            "dryRun": true,
+            "version": true,
+            "moduleName": "cramfs"
+          },
+          "comparison": "==",
+          "expected": "install /bin/true"
+        },{
+          "module": "lsmod",
+          "parameter": {},
+          "comparison": "!=",
+          "expected": "",
+          "onSuccess": {
+            "module": "grep",
+            "usePipe": true,
+            "parameter": {
+              "searchPattern": "cramfs"
+            },
+            "comparison": "==",
+            "expected": ""
+
+
+          }
+        }
+
+      ]
+    },{
+      "name": "Ensure /tmp is configured",
+      "steps": [
+        {
+          "module": "systemctl",
+          "parameter": {
+            "isEnabled": "tmp.mount"
+          },
+          "comparison": "==",
+          "expected": "enabled"
+        }
+      ]
+    },{
+      "name": "Ensure nodev option set on /tmp partition",
+      "steps": [
+        {
+          "module": "mount",
+          "parameter": {
+            "admin": true
+          },
+          "comparison": "!=",
+          "expected": "",
+          "onSuccess": {
+            "module": "grep",
+            "usePipe": true,
+            "parameter": {
+              "patternSyntax": {
+                "extendRegexp": true
+              },
+              "searchPattern": " '\\s/tmp\\s'"
+            },
+            "comparison": "!=",
+            "expected": "",
+            "onSuccess": {
+              "module": "grep",
+              "usePipe": true,
+              "parameter": {
+                "matchingControl": {
+                  "invertMatch": true
+                },
+                "searchPattern": "nodev"
+              },
+              "comparison": "==",
+              "expected": ""
+            }
+
+          }
+        }
+      ]
+    },{
+      "name": "Ensure Red Hat Subscription Manager connection is configured",
+      "steps": [
+        {
+          "module": "subscriptionManager",
+          "parameter": {},
+          "comparison": "!=",
+          "expected": ""
+        }
+      ]
+    },{
+      "name": "Disable the rhnsd Daemon",
+      "steps": [
+        {
+          "module": "systemctl",
+          "parameter": {
+            "isEnabled": "rhnsd"
+          },
+          "comparison": "==",
+          "expected": "disabled"
+        }
+      ]
+    },{
+      "name": "Ensure GPG keys are configured",
+      "steps": [
+        {
+          "module": "rpm",
+          "parameter": {
+            "query": true,
+            "target": "gpg-pubkey --qf '%{name}-%{version}-%{release} --> %{summary}\\n'"
+          },
+          "comparison": "!=",
+          "expected": ""
+        }
+      ]
+    },
+    {
+      "name": " Ensure gpgcheck is globally activated",
+      "steps": [
+        {
+          "module": "grep",
+          "parameter": {
+            "searchPattern": "^gpgcheck",
+            "target": "/etc/yum.conf"
+          },
+          "comparison": "==",
+          "expected": "gpgcheck=1"
+        }
+      ]
+    },{
+      "name": "Ensure package manager repositories are configured",
+      "steps": [
+        {
+          "module": "dnf",
+          "parameter": {
+            "repoList": true
+          },
+          "comparison": "!=",
+          "expected": ""
+        }
+      ]
+    },{
+      "name": "Ensure sudo log file exists",
+      "steps": [
+        {
+          "module": "grep",
+          "parameter": {
+            "patternSyntax": {
+              "extendRegexp": true
+            },
+            "matchingControl": {
+              "ignoreCase": true
+            },
+            "searchPattern": "'^\\s*Defaults\\s+([^#]+,\\s*)?logfile='",
+            "target": "/etc/sudoers /etc/sudoers.d/*"
+          },
+          "comparison": "!=",
+          "expected": ""
+        }
+      ]
+    },{
+      "name": "Ensure AIDE is installed",
+      "steps": [
+        {
+          "module": "rpm",
+          "parameter": {
+            "query": true,
+            "target": "aide"
+          },
+          "comparison": "!=",
+          "expected": ""
+        }
+      ]
+    },{
+      "name": "Ensure filesystem integrity is regularly checked",
+      "steps": [
+        {
+          "module": "systemctl",
+          "parameter": {
+            "isEnabled":"aidecheck.service"
+          },
+          "comparison": "!=",
+          "expected": ""
+        },{
+          "module": "systemctl",
+          "parameter": {
+            "isEnabled": "aidecheck.timer"
+          },
+          "comparison": "!=",
+          "expected": ""
+        },{
+          "module": "systemctl",
+          "parameter": {
+            "status": "aidecheck.timer"
+          },
+          "comparison": "!=",
+          "expected": ""
+        }
+      ]
+    },{
+      "name": "Ensure address space layout randomization (ASLR) is enabled",
+      "steps": [
+        {
+          "module": "sysctl",
+          "parameter": {
+            "target": "kernel.randomize_va_space"
+          },
+          "comparison": "==",
+          "expected": "kernel.randomize_va_space = 2"
+        },
+        {
+          "module": "grep",
+          "parameter": {
+            "searchPattern":"kernel\\.randomize_va_space",
+            "target": "/etc/sysctl.conf /etc/sysctl.d/*"
+          },
+          "comparison": "==",
+          "expected": "kernel.randomize_va_space = 2"
+        }
+      ]
+    },{
+      "name": "Ensure SELinux is installed (Automated)",
+      "steps": [
+        {
+          "module": "rpm",
+          "parameter": {
+            "query": true,
+            "target": "libselinux"
+          },
+          "comparison": "contains",
+          "expected": "%version%"
+        }
+      ]
+    },{
+      "name": "Ensure no unconfined services exist (Automated)",
+      "steps": [
+        {
+          "module": "ps",
+          "parameter": {
+            "addSecurityData": true
+          },
+          "comparison": "!=",
+          "expected": "",
+          "onSuccess": {
+            "module": "grep",
+            "usePipe": true,
+            "parameter": {
+              "target": "unconfined_service_t"
+            },
+            "comparison": "==",
+            "expected": ""
+          }
+        }
+      ]
+    },{
+      "name": "Ensure system-wide crypto policy is not legacy",
+      "steps": [
+        {
+          "module": "grep",
+          "parameter": {
+            "patternSyntax":{
+              "extendRegexp": true
+            },
+            "matchingControl": {
+              "ignoreCase": true
+            },
+            "searchPattern": "'^\\s*LEGACY\\s*(\\s+#.*)?$'",
+            "target": "/etc/crypto-policies/config"
+          },
+          "comparison": "==",
+          "expected": ""
+        }
+      ]
+    },{
+      "name": "Ensure permissions on /etc/issue are configured (Automated)",
+      "steps": [
+        {
+          "module": "stat",
+          "parameter": {
+            "path": "/etc/issue"
+          },
+          "comparison": "contains",
+          "expected": "Access:"
+        }
+      ]
+    },{
+      "name": "Ensure updates, patches, and additional security software are installed (Manual)",
+      "steps": [
+        {
+          "module": "dnf",
+          "parameter": {
+            "checkUpdate": true
+          },
+          "comparison": "!=",
+          "expected": ""
+        }
+      ]
+    }
+  ]
+}

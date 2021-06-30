@@ -1,0 +1,369 @@
+{
+  "os": "windows",
+  "debug": true,
+  "commands": [
+    {
+      "name": "pipe out auditpol",
+      "steps": [
+        {
+          "module": "auditpol",
+          "saveInPipe" : true,
+          "dontSaveArtifact": true,
+          "parameter": {
+            "match": {
+              "subcategoryGUID": "{0CCE9213-69AE-11D9-BED3-505054503030}"
+            }
+          },
+          "comparison": "==",
+          "expected": "0"
+        }
+      ]
+    },
+    {
+      "name": "pipe in selectString",
+      "steps": [
+        {
+          "module": "selectstring",
+          "parameter": {
+            "usePipe" : true,
+            "pattern" : "IPsec Driver"
+          },
+          "comparison": "contains",
+          "expected": "IPsec Driver"
+        }
+      ]
+    },
+    {
+      "name": "DirTest2",
+      "steps": [
+        {
+          "module": "dir",
+          "parameter": {
+            "path" : "C:\\Users\\phili\\AppData\\Local\\Temp\\EZAuditResult\\resultReport.json"
+          },
+          "comparison": "contains",
+          "expected": "Success"
+        }
+      ]
+    },
+    {
+      "name": "DirTest3",
+      "steps": [
+        {
+          "module": "dir",
+          "parameter": {
+            "path" : "C:\\Users\\phili\\AppData\\Local\\Temp\\EZAuditResult\\resultReport.json"
+          },
+          "comparison": "contains",
+          "expected": "dadadadad"
+        }
+      ]
+    },
+    {
+      "name": "getContent4",
+      "steps": [
+        {
+          "module": "getContent",
+          "parameter": {
+            "path" : "C:\\Users\\phili\\AppData\\Local\\Temp\\EZAuditResult\\resultReport.json"
+          },
+          "comparison": "contains",
+          "expected": "Azure"
+        }
+      ]
+    },
+    {
+      "name": "getContent5",
+      "steps": [
+        {
+          "module": "getContent",
+          "parameter": {
+            "path" : "C:\\Users\\phili\\AppData\\Local\\Temp\\EZAuditResult\\resultReport.json"
+          },
+          "comparison": "contains",
+          "expected": "Azure"
+        }
+      ]
+    },
+    {
+      "name": "getContent6",
+      "steps": [
+        {
+          "module": "getItemProperty",
+          "parameter": {
+            "path" : "C:\\Users\\phili\\AppData\\Local\\Temp\\EZAuditResult\\resultReport.json"
+          },
+          "comparison": "contains",
+          "expected": "Azure"
+        }
+      ]
+    },
+    {
+      "name": "getContent7",
+      "steps": [
+        {
+          "module": "getItemProperty",
+          "parameter": {
+            "path" : "C:\\Users\\phili\\AppData\\Local\\Temp\\EZAuditResult\\resultReport.json"
+          },
+          "comparison": "contains",
+          "expected": "Azure"
+        }
+      ]
+    },
+    {
+      "name": "getContent8",
+      "steps": [
+        {
+          "module": "getItemPropertyValue",
+          "parameter": {
+            "path" : "C:\\Users\\phili\\AppData\\Local\\Temp\\EZAuditResult\\resultReport.json"
+          },
+          "comparison": "contains",
+          "expected": "Azure"
+        }
+      ]
+    },
+    {
+      "name": "getProcess9",
+      "steps": [
+        {
+          "module": "getProcess",
+          "parameter": {
+            "name" : "Taskmanager"
+          },
+          "comparison": "!=",
+          "expected": ""
+        }
+      ]
+    },
+    {
+      "name": "10",
+      "steps": [
+        {
+          "module": "secedit",
+          "parameter": {
+            "pattern": "PasswordHistorySize"
+          },
+          "comparison": "==",
+          "expected": "24"
+        }
+      ]
+    },
+    {
+      "name": "11",
+      "steps": [
+        {
+          "module": "secedit",
+          "parameter": {
+            "pattern": "MaximumPasswordAge"
+          },
+          "comparison": "<=",
+          "expected": "60",
+          "OnSuccess": {
+            "module": "secedit",
+            "parameter": {
+              "pattern": "MaximumPasswordAge"
+            },
+            "comparison": "!=",
+            "expected": "0"
+          }
+        }
+      ]
+    },
+    {
+      "name": "12",
+      "steps": [
+        {
+          "module": "secedit",
+          "parameter": {
+            "pattern": "MinimumPasswordAge"
+          },
+          "comparison": ">=",
+          "expected": "1"
+        }
+      ]
+    },
+    {
+      "name": "13",
+      "steps": [
+        {
+          "module": "secedit",
+          "parameter": {
+            "pattern": "MinimumPasswordLength"
+          },
+          "comparison": ">=",
+          "expected": "14"
+        }
+      ]
+    },
+    {
+      "name": "14",
+      "steps": [
+        {
+          "module": "secedit",
+          "parameter": {
+            "pattern": "PasswordComplexity"
+          },
+          "comparison": "==",
+          "expected": "1"
+        }
+      ]
+    },
+    {
+      "name": "15",
+      "steps": [
+        {
+          "module": "secedit",
+          "parameter": {
+            "pattern": ":RelaxMinimumPasswordLengthLimits"
+          },
+          "comparison": "==",
+          "expected": "1"
+        }
+      ]
+    },
+    {
+      "name": "16",
+      "steps": [
+        {
+          "module": "secedit",
+          "parameter": {
+            "pattern": ":RelaxMinimumPasswordLengthLimits"
+          },
+          "comparison": "==",
+          "expected": "1"
+        }
+      ]
+    },
+    {
+      "name": "117",
+      "steps": [
+        {
+          "module": "secedit",
+          "parameter": {
+            "pattern": ":RelaxMinimumPasswordLengthLimits"
+          },
+          "comparison": ">=",
+          "expected": "15"
+        }
+      ]
+    },
+    {
+      "name": "18",
+      "steps": [
+        {
+          "module": "secedit",
+          "parameter": {
+            "pattern": "back two years ago"
+          },
+          "comparison": "==",
+          "expected": "This was back two years ago when I had may first real argument with my boss."
+        }
+      ]
+    },
+    {
+      "name": "19",
+      "steps": [
+        {
+          "module": "secedit",
+          "parameter": {
+            "pattern": "back two years ago"
+          },
+          "comparison": "==",
+          "expected": "This was back two years ago when I had may first real argument with my boss."
+        }
+      ]
+    },
+    {
+      "name": "20",
+      "steps": [
+        {
+          "module": "secedit",
+          "parameter": {
+            "pattern": "back two years ago"
+          },
+          "comparison": "==",
+          "expected": "This was back two years ago when I had may first real argument with my boss."
+        }
+      ]
+    },
+    {
+      "name": "21",
+      "steps": [
+        {
+          "module": "secedit",
+          "parameter": {
+            "pattern": "back two years ago"
+          },
+          "comparison": "==",
+          "expected": "This was back two years ago when I had may first real argument with my boss."
+        }
+      ]
+    },
+    {
+      "name": "22",
+      "steps": [
+        {
+          "module": "secedit",
+          "parameter": {
+            "pattern": "back two years ago"
+          },
+          "comparison": "==",
+          "expected": "This was back two years ago when I had may first real argument with my boss."
+        }
+      ]
+    },
+    {
+      "name": "23",
+      "steps": [
+        {
+          "module": "isInstalled",
+          "parameter": {
+          },
+          "comparison": "!=",
+          "expected": ""
+        }
+      ]
+    },
+    {
+      "name": "24",
+      "steps": [
+        {
+          "module": "isInstalled",
+          "parameter": {
+            "name": "WatchApp"
+          },
+          "comparison": "==",
+          "expected": "WatchApp"
+        }
+      ]
+    },
+    {
+      "name": "25",
+      "steps": [
+        {
+          "module": "isInstalled",
+          "parameter": {
+            "name": "Origin"
+          },
+          "comparison": "!=",
+          "expected": "Origin"
+        }
+      ]
+    },
+    {
+      "name": "26",
+      "steps": [
+        {
+          "module": "isInstalled",
+          "parameter": {
+            "name": "GoLand 2021.1"
+          },
+          "comparison": "!=",
+          "expected": "GoLand 2021.1"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "os": "windows",
+  "debug": true,
+  "commands": [
+    {
+      "name": "Test",
+      "steps": [
+        {
+          "module": "secedit",
+          "parameter": {
+            "pattern": "MaximumPasswordAge"
+          },
+          "comparison": "==",
+          "expected": "42"
+        }
+      ]
+    }
+  ]
+}

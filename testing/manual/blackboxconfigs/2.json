@@ -1,0 +1,32 @@
+{
+  "os": "windows",
+  "debug": true,
+  "commands": [
+    {
+      "name": "1.1.1 (L1) Ensure 'Enforce password history' is set to '24 or more password(s)",
+      "steps": [
+        {
+          "module": "cat",
+          "parameter": {
+            "paths": "PasswordHistorySize"
+          },
+          "comparison": "==",
+          "expected": "24"
+        }
+      ]
+    },
+    {
+      "name": "1.1.2 (L1) Ensure 'Enforce password history' is set to '24 or more password(s)",
+      "steps": [
+        {
+          "module": "ip",
+          "parameter": {
+            "showAdress": true
+          },
+          "comparison": "!=",
+          "expected": "24"
+        }
+      ]
+    }
+  ]
+}
